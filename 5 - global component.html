@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <a href="index.html">back to menu</a>
+  <hr>
+  <div id="app">
+    <item-list v-bind:items="books" v-on:item-clicked="itemClicked"></item-list>
+  </div>
+  <script>
+    Vue.component(
+      'item-list', {
+        props: ['items'],
+        template: `
+                <ul>
+                <li v-for="item in items" v-on:click="itemClicked(item)">{{item}}</li>
+              </ul>
+                `
+        ,
+        methods: {
+          itemClicked(item) {
+            this.$emit('item-clicked', item);
+          }
+        }
+      });
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        books: [
+          'first book',
+          'second book',
+          'third book'
+        ]
+      },
+      methods: {
+        itemClicked(item) {
+          alert('clicked handled by app : ' + item);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

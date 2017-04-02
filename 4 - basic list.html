@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <a href="index.html">back to menu</a>
+  <hr>
+  <div id="app">
+    <ul>
+      <li v-for="item in books" v-on:click="itemClicked(item)" >{{item}}</li>
+    </ul>
+  </div>
+  
+  <script>
+    var app = new Vue({
+      el: '#app',
+      methods:{
+        itemClicked(item){
+          alert('clicked :' + item);
+        }
+      },
+      data: {
+        books: [
+          'first book',
+          'second book',
+          'third book'
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

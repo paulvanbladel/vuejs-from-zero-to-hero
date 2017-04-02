@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <a href="index.html">back to menu</a>
+  <hr>
+  <div id="app">
+    <item-list v-bind:items="books"></item-list>
+  </div>
+  <script>
+    var itemListComponent = {
+      props: ['items'],
+      template: `
+                <ul>
+                <li v-for="item in items">{{item}}</li>
+              </ul>
+                `
+    };
+
+    var app = new Vue({
+      el: '#app',
+      components:{'item-list': itemListComponent},
+      data: {
+        books: [
+          'first book',
+          'second book',
+          'third book'
+        ]
+      }
+    })
+  </script>
+</body>
+</html>

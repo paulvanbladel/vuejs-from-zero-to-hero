@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <a href="index.html">back to menu</a>
+  <hr>
+  <div id="app">
+    <label>Type some text</label>
+    <input v-model="message">
+    <hr>
+    <p>Mirrored from the view-model : {{message}} </p>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'initial value propagated from view-model'
+      }
+    })
+  </script>
+</body>
+
+</html>
